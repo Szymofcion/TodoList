@@ -13,6 +13,7 @@ const prepareDOMElements = () => {
   errorInfo = document.querySelector(".error-info");
   addBtn = document.querySelector(".btn-add");
   ulList = document.querySelector(".todoList ul");
+  
 };
 
 const prepereDOMEvents = () => {
@@ -23,7 +24,8 @@ const addNewTask = () => {
     newTask = document.createElement("li");
     newTask.textContent = todoInput.value;
     createToolsArea();
-    
+
+    console.log(ulList);
     ulList.appendChild(newTask);
     
     todoInput.value = "";
@@ -34,7 +36,7 @@ const addNewTask = () => {
 };
 
 const createToolsArea = () => {
-  
+
   const toolsPanel = document.createElement("div");
   toolsPanel.classList.add("tools");
   newTask.appendChild(toolsPanel);
@@ -51,7 +53,7 @@ const createToolsArea = () => {
   deleteBtn.classList.add("delete");
   deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
   
-  toolsPanel.appendChild(completeBtn, editBtn, deleteBtn);
+  toolsPanel.append(completeBtn, editBtn, deleteBtn);
 };
 
 document.addEventListener("DOMContentLoaded", main);
