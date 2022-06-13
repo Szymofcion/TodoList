@@ -34,11 +34,21 @@ const prepereDOMEvents = () => {
 const createToolsArea = () => {
   const toolsPanel = document.createElement('div')
   toolsPanel.classList.add('tools')
+  newTask.append(toolsPanel)
 
   const completeBtn = document.createElement('button')
-  commpleteBtn
+  commpleteBtn.classList.add('complete')
+  commpleteBtn.innerHTML = '<i class="fas fa-check"></i>'
+
   const editBtn = document.createElement('button')
+  editBtn.classList.add('edit')
+  editBtn.textContent = 'EDIT'
+
   const deleteBtn = document.createElement('button')
+  deleteBtn.classList.add ('delete')
+  commpleteBtn.innerHTML = '<i class="fas fa-times"></i>'
+
+  toolsPanel.append(completeBtn, editBtn, deleteBtn)
 }
 
 console.log(addBtn);
