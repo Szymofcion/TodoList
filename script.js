@@ -78,6 +78,7 @@ const checkClick = (e) => {
   } else if (e.target.matches(".edit")) {
     editTodo(e);
   } else if (e.target.matches(".delete")) {
+    deleteTodo(e)
   }
 };
 
@@ -90,13 +91,23 @@ const editTodo = (e) => {
 
 const closePopup = () => {
   popup.style.display = "none";
+  popupInfo.textContent = ''
 };
 
 const changeTodoText = () => {
   if (popupInput.value !== "") {
     todoToEdit.firstChild.textContent = popupInput.value;
+    popup.style.display = 'none'
+    popupInfo.textContent = ''
+  } else {
+    popupInfo.textContent = 'Musisz podać jakąś treść :)'
+    
   }
 };
+
+const deleteTodo = e => {
+  e.target.closest('li').remove()
+}
 
 document.addEventListener("DOMContentLoaded", main);
 
