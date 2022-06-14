@@ -33,6 +33,7 @@ const prepereDOMEvents = () => {
   ulList.addEventListener("click", checkClick);
   popupCloseBtn.addEventListener("click", closePopup);
   popupAddBtn.addEventListener('click', changeTodoText)
+  todoInput.addEventListener('keyup', enterKeyCheck)
 };
 const addNewTask = () => {
   if (todoInput.value !== "") {
@@ -107,8 +108,18 @@ const changeTodoText = () => {
 
 const deleteTodo = e => {
   e.target.closest('li').remove()
+  const allTodos = document.querySelectorAll('li')
+
+  if(allTodos.length === 0) {
+    errorInfo.textContent = 'Brak zadań :)!'
+  }
 }
 
+const enterKeyCheck = e => {
+  if(e.key==='Enter'){
+    addNewTask()
+  }
+}
 document.addEventListener("DOMContentLoaded", main);
 
 console.log(addBtn);
